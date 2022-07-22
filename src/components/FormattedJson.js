@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './FormattedJson.css';
+import React from 'react';
+
 
 const FormattedJson = () => {
-    const enterData = document.getElementById('ugly-jsons');
+    const enterData = document.getElementById('ugly-json');
     const getData = document.getElementById('formated-json');
 
     //Handle Formate JSON 
@@ -44,7 +44,7 @@ const FormattedJson = () => {
                     <label htmlFor="ugly-json">Enter JSON Data</label>
                     <textarea
                         name="ugly-json"
-                        id="ugly-jsons"
+                        id="ugly-json"
                         cols="40" rows="18"
                         className='textarea textarea-primary'></textarea>
                 </div>

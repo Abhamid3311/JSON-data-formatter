@@ -1,28 +1,32 @@
 import React, { useState } from 'react';
+import './FormattedJson.css';
 
 const FormattedJson = () => {
+    const enterData = document.getElementById('ugly-jsons');
+    const getData = document.getElementById('formated-json');
 
     //Handle Formate JSON 
     const handleUnformattedJson = () => {
         try {
-            const badJson = document.getElementById('ugly-jsons').value;
+            const badJson = enterData.value;
             const parseJson = JSON.parse(badJson);
 
             const JSONInPrettyFormat = JSON.stringify(parseJson, undefined, 4);
-            document.getElementById('formated-json').value = JSONInPrettyFormat
+            getData.value = JSONInPrettyFormat
+            getData.style.color = 'black'
         } catch (e) {
-            console.log('error', e);
-            document.getElementById('formated-json').value = e;
-
+            getData.value = e;
+            getData.style.color = 'red'
         }
     };
 
-
     //reset button
     const resetBtn = () => {
-        document.getElementById('formated-json').value = '';
-        document.getElementById('ugly-jsons').value = '';
+        enterData.value = '';
+        getData.value = '';
     };
+
+
 
 
 

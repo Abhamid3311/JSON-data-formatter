@@ -1,15 +1,13 @@
 import React from 'react';
 
 const FormattedJson = () => {
-    const enterData = document.getElementById('bad-json');
-    const getData = document.getElementById('pretty-json');
+
 
     //Handle Formate JSON 
     const handleUnformattedJson = () => {
-
+        const getData = document.getElementById('pretty-json');
         try {
-            const badJson = enterData.value;
-
+            const badJson = document.getElementById('bad-json').value;
             const parseJson = JSON.parse(badJson);
 
             const JSONInPrettyFormat = JSON.stringify(parseJson, undefined, 4);
@@ -23,8 +21,8 @@ const FormattedJson = () => {
 
     //reset button
     const resetBtn = () => {
-        enterData.value = '';
-        getData.value = '';
+        document.getElementById('bad-json').value = '';
+        document.getElementById('pretty-json').value = '';
     };
 
     return (
@@ -32,7 +30,7 @@ const FormattedJson = () => {
             <h2 className='text-3xl mb-8'>Please Formate Your JSON</h2>
             <div >
                 <button onClick={handleUnformattedJson} className='btn btn-success'>Formate JSON</button>
-                <button onClick={resetBtn} className='btn btn-error'>Clear Data</button>
+                <button onClick={() => resetBtn()} className='btn btn-error'>Clear Data</button>
             </div>
 
             <div className='flex flex-row w-1/2 mx-auto mt-8'>

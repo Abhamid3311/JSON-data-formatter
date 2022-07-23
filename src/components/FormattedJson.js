@@ -5,11 +5,11 @@ const FormattedJson = () => {
     const getData = document.getElementById('pretty-json');
 
     //Handle Formate JSON 
-    const handleUnformattedJson = (e) => {
-        e.preventDefault();
+    const handleUnformattedJson = () => {
+
         try {
             const badJson = enterData.value;
-            console.log(badJson);
+
             const parseJson = JSON.parse(badJson);
 
             const JSONInPrettyFormat = JSON.stringify(parseJson, undefined, 4);

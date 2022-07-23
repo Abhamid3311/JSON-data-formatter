@@ -1,14 +1,15 @@
 import React from 'react';
 
-
 const FormattedJson = () => {
-    const enterData = document.getElementById('ugly-json');
-    const getData = document.getElementById('formated-json');
+    const enterData = document.getElementById('bad-json');
+    const getData = document.getElementById('pretty-json');
 
     //Handle Formate JSON 
-    const handleUnformattedJson = () => {
+    const handleUnformattedJson = (e) => {
+        e.preventDefault();
         try {
             const badJson = enterData.value;
+            console.log(badJson);
             const parseJson = JSON.parse(badJson);
 
             const JSONInPrettyFormat = JSON.stringify(parseJson, undefined, 4);
@@ -26,11 +27,6 @@ const FormattedJson = () => {
         getData.value = '';
     };
 
-
-
-
-
-
     return (
         <div className='text-center'>
             <h2 className='text-3xl mb-8'>Please Formate Your JSON</h2>
@@ -44,7 +40,7 @@ const FormattedJson = () => {
                     <label htmlFor="ugly-json">Enter JSON Data</label>
                     <textarea
                         name="ugly-json"
-                        id="ugly-json"
+                        id="bad-json"
                         cols="40" rows="18"
                         className='textarea textarea-primary'></textarea>
                 </div>
@@ -53,7 +49,7 @@ const FormattedJson = () => {
                     <label htmlFor="formated-json">Formatted JSON Data</label>
                     <textarea
                         name="formated-json"
-                        id="formated-json"
+                        id="pretty-json"
                         cols="40" rows="18"
                         readOnly
                         className='textarea textarea-primary'></textarea>
